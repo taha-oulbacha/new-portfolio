@@ -197,11 +197,47 @@ header {
 .card-top h3 {
   color: var(--main-color);
 }
-.carousel {
-  margin: 100px auto;
-  width: 90%;
-  border: 5px solid white;
+.services-carousel {
+  margin: 30px auto;
+  overflow: hidden;
+  width: 80%;
+  max-width: 700px;
+}
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+.group {
+  margin-top: 30px;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  animation: scroll 20s linear infinite;
 }
 .skill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  border-radius: 20px;
+  background: var(--accent-color);
+  white-space: nowrap;
+  color: var(--second-color);
+}
+
+.skill img {
+  width: 18px;
+  height: 18px;
+  filter: invert(1);
+}
+
+/*ANIMATIONS///////////////////////////
+***** infinite scroll carousel***/
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
 }
