@@ -26,6 +26,7 @@
 html,
 body {
   overflow-x: hidden;
+  background-color: #000000;
 }
 /*******************HEADER ***************/
 header {
@@ -79,31 +80,44 @@ header {
   cursor: pointer;
   color: #000000;
 }
-.sidebar {
+.mobile-menu {
   position: fixed;
-  top: 0;
-  right: -250px;
-  width: 250px;
-  height: 100vh;
-  background: rgba(244, 227, 227, 0.518);
-  box-shadow: 0 4px 30px rgba(221, 218, 218, 0.161);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
+  top: 90px;
+  left: 50%;
+  transform: translateX(-50%) scale(0.9);
+  width: 85%;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(20px);
+  border-radius: 30px;
+  padding: 40px;
   display: flex;
   flex-direction: column;
-  gap: 30px;
-  padding: 80px 30px;
-  transition: 0.3s ease;
+  gap: 25px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.35s ease;
   z-index: 1000;
 }
 
-.sidebar a {
+.mobile-menu a {
   color: white;
   text-decoration: none;
   font-size: 18px;
 }
-.sidebar.active {
-  right: 0;
+.mobile-menu.active {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+  pointer-events: auto;
+}
+.menu-top {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.close-menu {
+  font-size: 26px;
+  cursor: pointer;
+  color: rgb(255, 254, 254);
 }
 /********HERO SECTION ***********/
 .hero {
@@ -285,6 +299,10 @@ header {
 
 /* Phones **/
 @media (max-width: 600px) {
+  body {
+    overflow-x: hidden;
+    background-color: #000000;
+  }
   .header {
     position: fixed;
     width: 100%;
@@ -310,6 +328,9 @@ header {
   }
   .menu-btn {
     display: flex;
+    font-size: 28px;
+    cursor: pointer;
+    color: rgb(0, 0, 0);
   }
   .contact-btn {
     display: none;
@@ -325,7 +346,7 @@ header {
   }
   .hero-right {
     flex-direction: column-reverse;
-    margin-top: 50vh;
+    margin-top: 45vh;
   }
   .hero-right h1,
   h3 {
