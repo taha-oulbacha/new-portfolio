@@ -283,6 +283,35 @@ header {
   height: 18px;
   filter: invert(1);
 }
+/******PRICING SECTION ******/
+.pricing {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--sc-bg-color);
+  border-radius: 20px;
+}
+.pricing-content {
+  margin-top: 10vh;
+  display: flex;
+  flex-direction: column;
+}
+.pricing-header {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+.pricing-header h2 {
+  color: #ffffff;
+  font-size: 3rem;
+}
+.pricing-header h4 {
+  color: #ffffff;
+  font-size: 1.2rem;
+}
 /*******CONTACT-SECTIOM*************/
 .contact {
   min-height: 100vh;
