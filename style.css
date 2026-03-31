@@ -318,6 +318,84 @@ header {
   transform-origin: center;
 }
 
+/********FOOTER ********/
+footer {
+  background: var(--sc-bg-color);
+  color: #f2f2f2;
+  padding: 70px 90px 30px;
+  overflow: hidden;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 60px;
+  position: relative;
+  z-index: 2;
+}
+
+.footer-left p:first-child,
+.foo-socials p,
+.foo-nav p {
+  font-size: 16px;
+  color: #bdbdbd;
+  margin-bottom: 18px;
+}
+
+.footer-left p:last-child {
+  font-size: 21px;
+  font-weight: 700;
+  margin: 0;
+  color: #f5f5f5;
+}
+
+.footer-right {
+  display: flex;
+  gap: 70px;
+}
+
+.foo-socials,
+.foo-nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.foo-socials li,
+.foo-nav li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.foo-socials a,
+.foo-nav a {
+  display: block;
+  text-decoration: none;
+  color: #f5f5f5;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.9;
+  transition: opacity 0.25s ease;
+}
+
+.foo-socials a:hover,
+.foo-nav a:hover {
+  opacity: 0.7;
+}
+
+footer::after {
+  content: "Taha.Olb";
+  display: flex;
+  font-size: 190px;
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: 0.06em;
+  color: #ffffff;
+  margin-top: 80px;
+  white-space: nowrap;
+  justify-content: center;
+}
 /*ANIMATIONS///////////////////////////
 ***** infinite scroll carousel***/
 @keyframes scroll {
