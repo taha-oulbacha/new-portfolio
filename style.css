@@ -632,7 +632,9 @@ footer::after {
   .pricing-card {
     width: 100%;
     max-width: 500px;
-    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    height: auto;
   }
   .pricecard-top h3 {
     font-size: 20px;
@@ -659,7 +661,7 @@ footer::after {
   }
   .features {
     list-style: none;
-    padding-top: 10px;
+    padding-top: 5px;
   }
   .features li {
     display: flex;
