@@ -8,7 +8,6 @@
 }
 .zen-dots-regular {
   font-family: "Zen Dots", sans-serif;
-  font-weight: 400;
   font-style: normal;
 }
 
@@ -46,7 +45,6 @@ header {
   box-shadow: 0 4px 30px rgba(221, 218, 218, 0.161);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
-
   display: flex;
   justify-content: space-between;
   padding: 10px;
@@ -284,6 +282,40 @@ header {
   width: 18px;
   height: 18px;
   filter: invert(1);
+}
+/*******CONTACT-SECTIOM*************/
+.contact {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-color);
+  border-radius: 20px;
+}
+.contact-content {
+  margin-top: 12vh;
+  display: flex;
+  flex-direction: column;
+}
+.contact-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3vh;
+}
+.contact-header h2 {
+  color: #ffffff;
+  font-size: 2.5rem;
+}
+.contact-header h4 {
+  color: #ffffff;
+  font-size: 1.3rem;
+  font-weight: 300;
+}
+
+.tidycal-embed {
+  transform: scale(0.85);
+  transform-origin: center;
 }
 
 /*ANIMATIONS///////////////////////////
