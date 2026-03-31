@@ -289,7 +289,7 @@ header {
   width: 100%;
   display: flex;
   flex-direction: column;
-  background-color: var(--sc-bg-color);
+  background-color: var(--second-color);
   border-radius: 20px;
 }
 .pricing-content {
@@ -303,6 +303,7 @@ header {
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
+  margin-top: 5vh;
 }
 .pricing-header h2 {
   color: #ffffff;
@@ -311,6 +312,72 @@ header {
 .pricing-header h4 {
   color: #ffffff;
   font-size: 1.2rem;
+}
+.pricing-grid {
+  display: grid;
+  flex-direction: row;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  margin: 5vh 25vh;
+}
+.pricing-card {
+  padding: 32px;
+  border-radius: 20px;
+  height: 550px;
+}
+.pricing-card--dark {
+  background-color: var(--sc-bg-color);
+  color: #ffffff;
+  border: 2px solid var(--second-color);
+}
+.pricing-card--light {
+  background-color: #ffffff;
+  color: #000000;
+}
+.pricecard-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid white;
+}
+.pricecard-top--dark {
+  border-bottom: 1px solid white;
+}
+.pricecard-top--dark img {
+  filter: invert(1);
+}
+
+.pricecard-top--light {
+  border-bottom: 1px solid rgb(0, 0, 0);
+}
+
+.pricecard-top h3 {
+  font-size: 1.8rem;
+}
+.price {
+  padding: 15px 0;
+  font-size: 20px;
+}
+.description {
+  padding: 30px 0;
+  font-size: 16px;
+  line-height: 150%;
+}
+.features {
+  list-style: none;
+  padding-top: 20px;
+}
+.features li {
+  display: flex;
+  padding: 7px 0;
+  font-size: 14px;
+}
+.features li::before {
+  content: "↗";
+  margin-right: 10px;
 }
 /*******CONTACT-SECTIOM*************/
 .contact {
