@@ -227,9 +227,7 @@
             <div class="contact-right">
                 <div class="contact-form-card reveal">
                     <p class="form-label">CONTACT ME</p>
-                    <form class="contact-form" action="https://formsubmit.co/taha.oulbacha1@gmail.com" method="POST">
-                        <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_next" value="">
+                    <form class="contact-form" id="contactForm">
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="first-name">First name</label>
@@ -250,7 +248,8 @@
                                 <input type="tel" id="phone" name="phone" placeholder="(347)-000-0000">
                             </div>
                         </div>
-                        <button type="submit" class="submit-btn">SUBMIT</button>
+                        <button type="submit" class="submit-btn" id="submitBtn">SUBMIT</button>
+                        <p class="form-status" id="formStatus"></p>
                     </form>
                 </div>
             </div>

@@ -734,6 +734,23 @@ header.nav-hidden {
   transform: scale(1.02);
   opacity: 0.9;
 }
+.submit-btn.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+.form-status {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 8px;
+  min-height: 20px;
+  transition: opacity 0.3s ease;
+}
+.form-status.success {
+  color: #4ade80;
+}
+.form-status.error {
+  color: #f87171;
+}
 
 /********FOOTER ********/
 footer {

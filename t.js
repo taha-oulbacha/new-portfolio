@@ -98,3 +98,48 @@ const revealOnScroll = () => {
 
 window.addEventListener("scroll", revealOnScroll);
 setTimeout(revealOnScroll, 3400);
+
+// ——— Contact form (AJAX via FormSubmit) ———
+const contactForm = document.getElementById("contactForm");
+const submitBtn = document.getElementById("submitBtn");
+const formStatus = document.getElementById("formStatus");
+
+contactForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  // Loading state
+  submitBtn.classList.add("loading");
+  submitBtn.textContent = "SENDING...";
+  formStatus.textContent = "";
+  formStatus.className = "form-status";
+
+  const formData = new FormData(contactForm);
+  // Add FormSubmit config
+  formData.append("_captcha", "false");
+  formData.append("_subject", "New contact from portfolio");
+  formData.append("_template", "table");
+
+  try {
+    const res = await fetch("https://formsubmit.co/ajax/taha.oulbacha07@gmail.com", {
+      method: "POST",
+      headers: { Accept: "application/json" },
+      body: formData,
+    });
+
+    const data = await res.json();
+
+    if (data.success === "true" || data.success === true) {
+      formStatus.textContent = "Message sent successfully!";
+      formStatus.className = "form-status success";
+      contactForm.reset();
+    } else {
+      throw new Error("Submission failed");
+    }
+  } catch (err) {
+    formStatus.textContent = "Something went wrong. Please try again.";
+    formStatus.className = "form-status error";
+  } finally {
+    submitBtn.classList.remove("loading");
+    submitBtn.textContent = "SUBMIT";
+  }
+});
