@@ -5,14 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Taha Oulbacha | Portfolio </title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="img/TH-MONOGRAM.png">
 </head>
 
 <body>
+    <!-- LOADER -->
+    <div class="loader">
+        <svg class="loader-svg" viewBox="0 0 260 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- T letter -->
+            <path class="draw-letter" d="M 10 10 L 90 10" />
+            <path class="draw-letter" d="M 50 10 L 50 110" />
+            <!-- H letter -->
+            <path class="draw-letter" d="M 130 10 L 130 110" />
+            <path class="draw-letter" d="M 130 60 L 210 60" />
+            <path class="draw-letter" d="M 210 10 L 210 110" />
+        </svg>
+    </div>
+
     <header>
         <nav class="navbar">
             <a href="#Home"><img src="img/TH-MONOGRAM.png" alt="TH-logo" class="TH-logo"></a>
@@ -22,28 +32,48 @@
             <a href="#Pricing">Pricing</a>
             <a href="#contact" class="contact-btn">Get in touch +</a>
             <div class="menu-btn">☰</div>
-
         </nav>
-        <div class="mobile-menu">
-            <div class="menu-top">
-                <span class="close-menu">✕</span>
-            </div>
-
-            <a href="#Home">Home</a>
-            <a href="#Services">Services</a>
-            <a href="#Projects">Projects</a>
-            <a href="#About">About</a>
-            <a href="#Pricing">Pricing</a>
-            <a href="#contact">Get in touch</a>
-
-        </div>
     </header>
+
+    <!-- Floating menu button (appears on scroll) -->
+    <button class="fab-menu" aria-label="Open menu">
+        <span class="fab-line"></span>
+        <span class="fab-line"></span>
+    </button>
+
+    <!-- Fullscreen overlay menu -->
+    <div class="overlay-menu">
+        <div class="overlay-menu-inner">
+            <span class="overlay-close">&times;</span>
+            <nav class="overlay-nav">
+                <a href="#Home">Home</a>
+                <a href="#Services">Services</a>
+                <a href="#Projects">Projects</a>
+                <a href="#About">About</a>
+                <a href="#Pricing">Pricing</a>
+                <a href="#contact">Get in touch</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Mobile menu (hero only) -->
+    <div class="mobile-menu">
+        <div class="menu-top">
+            <span class="close-menu">&times;</span>
+        </div>
+        <a href="#Home">Home</a>
+        <a href="#Services">Services</a>
+        <a href="#Projects">Projects</a>
+        <a href="#About">About</a>
+        <a href="#Pricing">Pricing</a>
+        <a href="#contact">Get in touch</a>
+    </div>
     <!--HERO SECTION -->
     <section id="Home" class="hero">
         <div class="hero-card">
             <div class="hero-right">
-                <h1>TAHA </h1>
-                <h3>Junior developer </h3>
+                <h1 class="reveal">TAHA </h1>
+                <h3 class="reveal">Full-stack developer </h3>
                 <a href="https://tidycal.com/tahaoulbacha1/lets-build-something-powerful-together" target="_blank"
                     class="start-btn">let's get
                     started ➝</a>
@@ -61,14 +91,14 @@
     <!--SERVICES SECTION-->
     <section id="Services" class="services">
         <div class="services-content">
-            <div class="services-header">
+            <div class="services-header reveal">
                 <h2>How I Help Businesses Grow Online</h2>
                 <a href="https://tidycal.com/tahaoulbacha1/lets-build-something-powerful-together" target="_blank"
                     class="start-btn">let's get
                     started ➝</a>
             </div>
             <div class="services-grid">
-                <div class="card">
+                <div class="card reveal">
                     <div class="card-top">
                         <img src="icons/code.apng.png" alt="code-logo">
                         <h3>Design & Development</h3>
@@ -77,7 +107,7 @@
                         performance,
                         usability, and converting visitors into customers.</p>
                 </div>
-                <div class="card">
+                <div class="card reveal">
                     <div class="card-top">
                         <img src="icons/refresh.png" alt="redesign-logo">
                         <h3>Website Redesign</h3>
@@ -86,7 +116,7 @@
                         with a modern look,
                         improved structure, and better user experience.</p>
                 </div>
-                <div class="card">
+                <div class="card reveal">
                     <div class="card-top">
                         <img src="icons/bot.png" alt="bot-logo">
                         <h3>Business Automation</h3>
@@ -95,7 +125,7 @@
                         location, FAQs, and order
                         handling instantly.</p>
                 </div>
-                <div class="card">
+                <div class="card reveal">
                     <div class="card-top">
                         <img src="icons/speed.png" alt="speed-logo">
                         <h3>Speed & SEO </h3>
@@ -141,13 +171,13 @@
     <!--PRINCING SECTION-->
     <section id="Pricing" class="Pricing">
         <div class="pricing-content">
-            <div class="pricing-header">
+            <div class="pricing-header reveal">
                 <h2>Pricing That Grows With You</h2>
                 <h4>Whether you're starting small or scaling big, I design solutions that fit your vision and your
                     budget.</h4>
             </div>
             <div class="pricing-grid">
-                <div class="pricing-card pricing-card--dark">
+                <div class="pricing-card pricing-card--dark reveal">
                     <div class="pricecard-top pricecard-top--dark">
                         <h3>Starter Pack</h3>
                         <img src="icons/start.png" alt="start-logo">
@@ -163,7 +193,7 @@
                         <li>Email support</li>
                     </ul>
                 </div>
-                <div class="pricing-card pricing-card--light">
+                <div class="pricing-card pricing-card--light reveal">
                     <div class="pricecard-top pricecard-top--light">
                         <h3>Premium </h3>
                         <img src="icons/premium.png" alt="premium-logo">
@@ -188,24 +218,49 @@
 
     <!--CONTACT SECTION-->
     <section id="contact" class="contact">
-        <div class="contact-content">
-            <div class="contact-header">
-                <h2>Book Your Call</h2>
-                <h4>Let's Builde Something Powerful-Book a Session Now!</h4>
+        <div class="contact-wrapper">
+            <div class="contact-left reveal">
+                <h2 class="contact-title">GET IN<br>TOUCH</h2>
+                <p class="contact-description">Have a project in mind? Whether you're launching a brand, designing a
+                    product, or elevating your digital presence, we're here to bring your vision to life.</p>
             </div>
-
-            <div class="tidycal-embed" data-path="tahaoulbacha1/lets-build-something-powerful-together">
-                <script src="https://tidycal.com/js/embed.js" async></script>
+            <div class="contact-right">
+                <div class="contact-form-card reveal">
+                    <p class="form-label">CONTACT ME</p>
+                    <form class="contact-form" action="https://formsubmit.co/taha.oulbacha1@gmail.com" method="POST">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_next" value="">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="first-name">First name</label>
+                                <input type="text" id="first-name" name="first-name" placeholder="Jane" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="last-name">Last name</label>
+                                <input type="text" id="last-name" name="last-name" placeholder="Smith" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" placeholder="jane@framer.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone no.</label>
+                                <input type="tel" id="phone" name="phone" placeholder="(347)-000-0000">
+                            </div>
+                        </div>
+                        <button type="submit" class="submit-btn">SUBMIT</button>
+                    </form>
+                </div>
             </div>
-
-
         </div>
     </section>
     <!--END CONTACT-->
 
     <!--FOOTER-->
     <footer>
-        <div class="footer-container">
+        <div class="footer-container reveal">
             <div class="footer-left">
                 <p>(Inquiries)</p>
                 <p>taha.oulbacha1@gmail.com</p>
