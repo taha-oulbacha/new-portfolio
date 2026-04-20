@@ -99,6 +99,24 @@ const revealOnScroll = () => {
 window.addEventListener("scroll", revealOnScroll);
 setTimeout(revealOnScroll, 3400);
 
+// ——— FAQ Accordion ———
+document.querySelectorAll(".faq-question").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const item = btn.parentElement;
+    const isOpen = item.classList.contains("open");
+
+    // Close all items first
+    document.querySelectorAll(".faq-item").forEach((el) => {
+      el.classList.remove("open");
+    });
+
+    // Toggle the clicked one
+    if (!isOpen) {
+      item.classList.add("open");
+    }
+  });
+});
+
 // ——— Contact form (AJAX via FormSubmit) ———
 const contactForm = document.getElementById("contactForm");
 const submitBtn = document.getElementById("submitBtn");

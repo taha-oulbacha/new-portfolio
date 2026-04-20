@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Taha Oulbacha</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="img/TH-MONOGRAM.png">
+    <style>
+        body {
+            background: #000;
+        }
+        .projects-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 24px;
+            gap: 24px;
+        }
+        .projects-page svg {
+            width: 64px;
+            height: 64px;
+            animation: spin 6s linear infinite;
+        }
+        .projects-page h1 {
+            color: #fff;
+            font-size: 2.8rem;
+            max-width: 500px;
+            line-height: 1.2;
+        }
+        .projects-page p {
+            color: #666;
+            font-size: 15px;
+            max-width: 400px;
+            line-height: 170%;
+        }
+        .projects-page a {
+            margin-top: 12px;
+            display: inline-block;
+            padding: 14px 32px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 40px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+            font-family: "Stardom", sans-serif;
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+        .projects-page a:hover {
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(255,255,255,0.4);
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+
+<body>
+    <section class="projects-page">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+        </svg>
+        <h1>Projects are being upgraded</h1>
+        <p>I'm currently working on some exciting new case studies and projects. This page will be live soon with the full showcase.</p>
+        <a href="index.html">&larr; Back to Home</a>
+    </section>
+</body>
+
+</html>
