@@ -29,7 +29,7 @@ p, li, label, input, textarea, select,
 .footer-bottom p,
 .mobile-menu a, .overlay-nav a,
 .skill, .pricing-header h4 {
-  font-family: "Inter", sans-serif;
+  font-family: "Space Grotesk", sans-serif;
 }
 
 /*******LOADER*************/
@@ -861,22 +861,25 @@ header.nav-hidden {
 .contact-wrapper {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 60px;
   max-width: 1100px;
   width: 100%;
   padding: 80px 40px;
   position: relative;
   z-index: 1;
+  margin: 0 auto;
+  flex-wrap: wrap;
 }
 .contact-left {
-  flex: 1;
+  flex: 1 1 320px;
   display: flex;
   flex-direction: column;
   gap: 24px;
+  min-width: 280px;
 }
 .contact-title {
-  font-size: 5.5rem;
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
   font-weight: 900;
   color: #ffffff;
   line-height: 1;
@@ -889,9 +892,10 @@ header.nav-hidden {
   max-width: 420px;
 }
 .contact-right {
-  flex: 1;
+  flex: 1 1 360px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  min-width: 0;
 }
 .contact-form-card {
   background: rgba(255, 255, 255, 0.08);
@@ -902,6 +906,7 @@ header.nav-hidden {
   padding: 40px 36px;
   width: 100%;
   max-width: 460px;
+  box-sizing: border-box;
 }
 .form-label {
   color: #ffffff;
@@ -919,6 +924,10 @@ header.nav-hidden {
 .form-row {
   display: flex;
   gap: 16px;
+  flex-wrap: wrap;
+}
+.form-row .form-group {
+  min-width: 140px;
 }
 .form-group {
   flex: 1;
@@ -938,7 +947,7 @@ header.nav-hidden {
   padding: 14px 16px;
   color: #ffffff;
   font-size: 14px;
-  font-family: "Inter", sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   outline: none;
   transition: border-color 0.3s ease;
 }
@@ -1124,9 +1133,22 @@ footer::after {
   .contact-wrapper {
     gap: 40px;
     padding: 80px 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .contact-left {
+    flex: 1 1 280px;
+    min-width: 240px;
+  }
+  .contact-right {
+    flex: 1 1 320px;
+    min-width: 0;
   }
   .contact-title {
-    font-size: 4rem;
+    font-size: clamp(2.8rem, 5vw, 4rem);
+  }
+  .contact-form-card {
+    max-width: 100%;
   }
   footer::after {
     font-size: 12vw;
@@ -1327,27 +1349,31 @@ footer::after {
   /* Contact */
   .contact-wrapper {
     flex-direction: column;
-    padding: 100px 20px 60px;
-    gap: 36px;
+    padding: 80px 16px 50px;
+    gap: 32px;
     text-align: center;
   }
-  .contact-title {
-    font-size: 2.8rem;
+  .contact-left {
+    min-width: 0;
+    align-items: center;
   }
   .contact-description {
     margin: 0 auto;
     font-size: 14px;
   }
   .contact-right {
-    justify-content: center;
     width: 100%;
+    min-width: 0;
   }
   .contact-form-card {
     max-width: 100%;
-    padding: 28px 20px;
+    padding: 28px 16px;
   }
   .form-row {
     flex-direction: column;
+  }
+  .form-group input {
+    width: 100%;
   }
 
   /* Overlay */
