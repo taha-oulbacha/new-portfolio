@@ -18,6 +18,20 @@
   font-family: "Stardom", sans-serif;
 }
 
+/* Readable font for body text */
+p, li, label, input, textarea, select,
+.card p, .description, .features li,
+.contact-description, .form-label, .form-group label,
+.form-group input, .form-status,
+.faq-answer p, .faq-question span:first-child,
+.about-text p, .about-label,
+.footer-left p:first-child, .foo-socials p, .foo-nav p,
+.footer-bottom p,
+.mobile-menu a, .overlay-nav a,
+.skill, .pricing-header h4 {
+  font-family: "Inter", sans-serif;
+}
+
 /*******LOADER*************/
 .loader {
   position: fixed;
@@ -924,7 +938,7 @@ header.nav-hidden {
   padding: 14px 16px;
   color: #ffffff;
   font-size: 14px;
-  font-family: "Stardom", sans-serif;
+  font-family: "Inter", sans-serif;
   outline: none;
   transition: border-color 0.3s ease;
 }

@@ -4,6 +4,14 @@ body {
   background: #f5f5f5;
 }
 
+/* Readable font for body text on about page */
+.ap-testimonial p, .ap-role, .ap-about-label,
+.ap-about-text p, .ap-exp-company, .ap-exp-date,
+.ap-stack-desc, .back-link, .about-nav-cta,
+.st-word {
+  font-family: "Inter", sans-serif;
+}
+
 /* NAV */
 .about-nav {
   display: flex;
@@ -23,7 +31,9 @@ body {
   font-size: 15px;
   transition: opacity 0.3s;
 }
-.back-link:hover { opacity: 0.5; }
+.back-link:hover {
+  opacity: 0.5;
+}
 .about-nav-logo {
   width: 70px;
   height: auto;
@@ -35,7 +45,9 @@ body {
   padding: 10px 24px;
   border: 1px solid #ccc;
   border-radius: 30px;
-  transition: background 0.3s, color 0.3s;
+  transition:
+    background 0.3s,
+    color 0.3s;
 }
 .about-nav-cta:hover {
   background: #000;
@@ -139,8 +151,8 @@ body {
   margin-bottom: 60px;
 }
 .ap-about-label {
-  font-size: 14px;
-  color: #888;
+  font-size: 2.5rem;
+  color: #000000;
   flex-shrink: 0;
   padding-top: 8px;
 }
@@ -255,11 +267,13 @@ body {
   border-radius: 16px;
   background: #fff;
   border: 1px solid #eee;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 .ap-stack-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
 }
 .ap-stack-card--active {
   background: #000;
@@ -270,10 +284,10 @@ body {
   color: #fff;
 }
 .ap-stack-card--active .ap-stack-desc {
-  color: rgba(255,255,255,0.6);
+  color: rgba(255, 255, 255, 0.6);
 }
 .ap-stack-card--active .ap-stack-icon {
-  background: rgba(255,255,255,0.15);
+  background: rgba(255, 255, 255, 0.15);
   color: #fff;
 }
 .ap-stack-icon {
@@ -299,7 +313,7 @@ body {
   background: #f0f0f0;
 }
 .ap-stack-card--active .ap-stack-logo {
-  background: rgba(255,255,255,0.15);
+  background: rgba(255, 255, 255, 0.15);
 }
 .ap-stack-info {
   display: flex;
@@ -337,7 +351,9 @@ body {
   border-radius: 40px;
   font-size: 15px;
   font-family: "Stardom", sans-serif;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
 }
 .ap-cta-btn:hover {
   transform: scale(1.04);
@@ -352,50 +368,126 @@ footer {
 
 /* RESPONSIVE — Tablet */
 @media (max-width: 1024px) {
-  .ap-hero { padding: 40px 24px 60px; }
-  .ap-hero-heading { font-size: 2.2rem; }
-  .ap-hero-content { flex-direction: column; }
-  .ap-testimonials { flex: auto; width: 100%; }
-  .ap-hero-image { max-height: 360px; }
-  .ap-about { padding: 60px 24px; }
-  .ap-about-top { gap: 40px; }
-  .ap-about-text h2 { font-size: 1.6rem; }
-  .ap-experience { padding: 60px 24px; }
-  .ap-stacks { padding: 60px 24px; }
-  .ap-exp-company { flex: 0 0 150px; }
+  .ap-hero {
+    padding: 40px 24px 60px;
+  }
+  .ap-hero-heading {
+    font-size: 2.2rem;
+  }
+  .ap-hero-content {
+    flex-direction: column;
+  }
+  .ap-testimonials {
+    flex: auto;
+    width: 100%;
+  }
+  .ap-hero-image {
+    max-height: 360px;
+  }
+  .ap-about {
+    padding: 60px 24px;
+  }
+  .ap-about-top {
+    gap: 40px;
+  }
+  .ap-about-text h2 {
+    font-size: 1.6rem;
+  }
+  .ap-experience {
+    padding: 60px 24px;
+  }
+  .ap-stacks {
+    padding: 60px 24px;
+  }
+  .ap-exp-company {
+    flex: 0 0 150px;
+  }
 }
 
 /* RESPONSIVE — Phone */
 @media (max-width: 600px) {
-  .about-nav { padding: 16px 20px; }
-  .about-nav-cta { padding: 8px 16px; font-size: 13px; }
-  .ap-hero { padding: 30px 20px 50px; }
-  .ap-hero-heading { font-size: 1.7rem; margin-bottom: 40px; }
-  .ap-hero-content { flex-direction: column; gap: 30px; }
-  .ap-testimonials { flex: auto; }
-  .ap-testimonial { padding: 18px 16px; }
-  .ap-hero-image { max-height: 280px; }
+  .about-nav {
+    padding: 16px 20px;
+  }
+  .about-nav-cta {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+  .ap-hero {
+    padding: 30px 20px 50px;
+  }
+  .ap-hero-heading {
+    font-size: 1.7rem;
+    margin-bottom: 40px;
+  }
+  .ap-hero-content {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .ap-testimonials {
+    flex: auto;
+  }
+  .ap-testimonial {
+    padding: 18px 16px;
+  }
+  .ap-hero-image {
+    max-height: 280px;
+  }
 
-  .ap-about { padding: 50px 20px; }
-  .ap-about-top { flex-direction: column; gap: 20px; }
-  .ap-about-text h2 { font-size: 1.4rem; }
+  .ap-about {
+    padding: 50px 20px;
+  }
+  .ap-about-top {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .ap-about-text h2 {
+    font-size: 1.4rem;
+  }
   .ap-about-images {
     grid-template-columns: 1fr;
     gap: 16px;
   }
-  .ap-img-card { max-height: 300px; }
+  .ap-img-card {
+    max-height: 300px;
+  }
 
-  .ap-experience { padding: 50px 20px; }
-  .ap-section-title { font-size: 1.5rem; }
-  .ap-exp-row { flex-wrap: wrap; padding: 16px 14px; gap: 4px; }
-  .ap-exp-role { flex: 1 1 100%; }
-  .ap-exp-company { flex: 1; text-align: left; }
-  .ap-exp-date { flex: 1; }
+  .ap-experience {
+    padding: 50px 20px;
+  }
+  .ap-section-title {
+    font-size: 1.5rem;
+  }
+  .ap-exp-row {
+    flex-wrap: wrap;
+    padding: 16px 14px;
+    gap: 4px;
+  }
+  .ap-exp-role {
+    flex: 1 1 100%;
+  }
+  .ap-exp-company {
+    flex: 1;
+    text-align: left;
+  }
+  .ap-exp-date {
+    flex: 1;
+  }
 
-  .ap-stacks { padding: 50px 20px; }
-  .ap-stacks-grid { grid-template-columns: 1fr; }
-  .ap-stack-card { padding: 18px 16px; }
+  .ap-stacks {
+    padding: 50px 20px;
+  }
+  .ap-stacks-grid {
+    grid-template-columns: 1fr;
+  }
+  .ap-stack-card {
+    padding: 18px 16px;
+  }
 
-  .ap-cta { padding: 50px 20px; }
-  .ap-cta h2 { font-size: 1.8rem; }
+  .ap-cta {
+    padding: 50px 20px;
+  }
+  .ap-cta h2 {
+    font-size: 1.8rem;
+  }
 }
