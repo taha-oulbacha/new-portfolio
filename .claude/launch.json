@@ -1,0 +1,33 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "lifemanager-api",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["-lc", "cd '/Users/tahaoulbacha/Documents/mashari3/lifemanager' && npm run server"],
+      "port": 3001,
+      "autoPort": false
+    },
+    {
+      "name": "lifemanager",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["-lc", "cd '/Users/tahaoulbacha/Documents/mashari3/lifemanager' && npm run dev"],
+      "port": 5173,
+      "autoPort": true
+    },
+    {
+      "name": "essor-dev",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["-lc", "cd '/Users/tahaoulbacha/Documents/ESSOR' && npm run dev"],
+      "port": 3000,
+      "autoPort": true
+    },
+    {
+      "name": "essor-prod",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["-lc", "cd '/Users/tahaoulbacha/Documents/ESSOR' && npm run start"],
+      "port": 3100,
+      "autoPort": true
+    }
+  ]
+}

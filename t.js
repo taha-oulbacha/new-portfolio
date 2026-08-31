@@ -1,21 +1,44 @@
-// Mobile menu (hero section, small screens)
-const menuBtn = document.querySelector(".menu-btn");
-const mobileMenu = document.querySelector(".mobile-menu");
-const closeMenu = document.querySelector(".close-menu");
+// ——— Fit the giant hero role line to the viewport width ———
+const heroRole = document.querySelector(".hero-role");
 
-menuBtn.addEventListener("click", () => {
-  mobileMenu.classList.add("active");
-});
+const fitHeroRole = () => {
+  if (!heroRole) return;
+  const box = heroRole.parentElement;
+  const cs = getComputedStyle(box);
+  const avail =
+    box.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+  if (avail <= 0) return;
 
-closeMenu.addEventListener("click", () => {
-  mobileMenu.classList.remove("active");
-});
+  const spans = heroRole.querySelectorAll("span");
+  const stacked = spans.length && getComputedStyle(spans[0]).display === "block";
 
-document.querySelectorAll(".mobile-menu a").forEach((link) => {
-  link.addEventListener("click", () => {
-    mobileMenu.classList.remove("active");
+  heroRole.style.fontSize = "100px";
+  let widest = 0;
+  if (stacked) {
+    spans.forEach((s) => {
+      widest = Math.max(widest, s.getBoundingClientRect().width);
+    });
+  } else {
+    widest = heroRole.scrollWidth;
+  }
+  if (!widest) return;
+
+  heroRole.style.fontSize = Math.min(100 * (avail / widest), 260) + "px";
+};
+
+if (heroRole) {
+  heroRole.classList.add("fitted");
+  fitHeroRole();
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(fitHeroRole);
+  }
+  window.addEventListener("load", fitHeroRole);
+  let fitTimer;
+  window.addEventListener("resize", () => {
+    clearTimeout(fitTimer);
+    fitTimer = setTimeout(fitHeroRole, 120);
   });
-});
+}
 
 // Loader
 const loader = document.querySelector(".loader");
@@ -29,49 +52,65 @@ window.addEventListener("load", () => {
   }, 3200);
 });
 
-// ——— Navbar ↔ Floating button transition ———
+// ——— Navbar → floating pill transition ———
 const header = document.querySelector("header");
-const fabMenu = document.querySelector(".fab-menu");
+const navToggle = document.querySelector(".nav-toggle");
 const overlayMenu = document.querySelector(".overlay-menu");
+const overlayClose = document.querySelector(".overlay-close");
 const heroSection = document.querySelector(".hero");
+
+const closeOverlay = () => {
+  overlayMenu.classList.remove("open");
+  header.classList.remove("menu-open");
+  navToggle.setAttribute("aria-expanded", "false");
+  document.body.style.overflow = "";
+};
+
+const openOverlay = () => {
+  overlayMenu.classList.add("open");
+  header.classList.add("menu-open");
+  navToggle.setAttribute("aria-expanded", "true");
+  document.body.style.overflow = "hidden";
+};
 
 const handleNavScroll = () => {
   const heroBottom = heroSection.getBoundingClientRect().bottom;
-  const pastHero = heroBottom < 80;
+  const pastHero = heroBottom < 120;
 
-  if (pastHero) {
-    header.classList.add("nav-hidden");
-    fabMenu.classList.add("visible");
-  } else {
-    header.classList.remove("nav-hidden");
-    fabMenu.classList.remove("visible");
-    // Close overlay if scrolling back to hero
-    overlayMenu.classList.remove("open");
-    fabMenu.classList.remove("active");
+  header.classList.toggle("scrolled", pastHero);
+
+  // On desktop the toggle only exists in the pill state, so close on scroll back
+  if (!pastHero && window.innerWidth > 900 && overlayMenu.classList.contains("open")) {
+    closeOverlay();
   }
 };
 
-window.addEventListener("scroll", handleNavScroll);
+window.addEventListener("scroll", handleNavScroll, { passive: true });
+handleNavScroll();
 
-// Floating button → open/close overlay
-fabMenu.addEventListener("click", () => {
-  const isOpen = overlayMenu.classList.contains("open");
-
-  if (isOpen) {
-    overlayMenu.classList.remove("open");
-    fabMenu.classList.remove("active");
+navToggle.addEventListener("click", () => {
+  if (overlayMenu.classList.contains("open")) {
+    closeOverlay();
   } else {
-    overlayMenu.classList.add("open");
-    fabMenu.classList.add("active");
+    openOverlay();
   }
 });
 
+overlayClose.addEventListener("click", closeOverlay);
+
+// Click the dimmed backdrop to close
+overlayMenu.addEventListener("click", (e) => {
+  if (e.target === overlayMenu) closeOverlay();
+});
+
+// Esc to close
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && overlayMenu.classList.contains("open")) closeOverlay();
+});
+
 // Close overlay when clicking a link
-document.querySelectorAll(".overlay-nav a").forEach((link) => {
-  link.addEventListener("click", () => {
-    overlayMenu.classList.remove("open");
-    fabMenu.classList.remove("active");
-  });
+document.querySelectorAll(".overlay-nav a, .overlay-cta").forEach((link) => {
+  link.addEventListener("click", closeOverlay);
 });
 
 // Scroll reveal
@@ -98,6 +137,45 @@ const revealOnScroll = () => {
 
 window.addEventListener("scroll", revealOnScroll);
 setTimeout(revealOnScroll, 3400);
+
+// ——— Stacked service cards: shrink + dim each card as the next covers it ———
+const svcCards = Array.from(document.querySelectorAll(".svc-card"));
+
+if (svcCards.length && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  let ticking = false;
+
+  const updateStack = () => {
+    ticking = false;
+    const vh = window.innerHeight;
+
+    svcCards.forEach((card, i) => {
+      const next = svcCards[i + 1];
+      if (!next) {
+        card.style.setProperty("--p", "0");
+        return;
+      }
+      const cardTop = card.getBoundingClientRect().top;
+      const nextTop = next.getBoundingClientRect().top;
+
+      // The next card travels from the bottom of the viewport up to this
+      // card's resting position. That journey is this card's 0 → 1.
+      const travel = Math.max(vh - cardTop, 1);
+      const p = Math.min(Math.max((vh - nextTop) / travel, 0), 1);
+
+      card.style.setProperty("--p", p.toFixed(3));
+    });
+  };
+
+  const onScroll = () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(updateStack);
+  };
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
+  updateStack();
+}
 
 // ——— FAQ Accordion ———
 document.querySelectorAll(".faq-question").forEach((btn) => {

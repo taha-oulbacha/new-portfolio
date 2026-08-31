@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Studio · Taha Oulbacha</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+    <!-- ── Sign in ─────────────────────────────────────────────── -->
+    <div class="login-screen" id="loginScreen" hidden>
+        <form class="login-card" id="loginForm">
+            <span class="brand brand--lg">TH</span>
+            <h1>Studio</h1>
+            <p class="login-sub">Leads, clients, money and reviews in one place.</p>
+            <label>Email<input type="email" name="email" autocomplete="username" required></label>
+            <label>Password<input type="password" name="password" autocomplete="current-password" required></label>
+            <button type="submit" class="btn-primary" id="loginBtn">Sign in</button>
+            <p class="form-error" id="loginError" role="alert"></p>
+        </form>
+    </div>
+
+    <!-- ── App ─────────────────────────────────────────────────── -->
+    <div class="shell" id="app" hidden>
+
+        <aside class="side">
+            <div class="side-top">
+                <span class="brand">TH</span>
+                <div class="side-who">
+                    <b>Taha Oulbacha</b>
+                    <span id="who"></span>
+                </div>
+            </div>
+
+            <nav class="side-nav">
+                <button class="nav-item is-on" type="button" data-view="overview">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h7V3H3zM14 21h7v-9h-7zM14 9h7V3h-7zM3 21h7v-6H3z"/></svg>
+                    Overview
+                </button>
+                <button class="nav-item" type="button" data-view="leads">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4z"/><path d="m4 7 8 6 8-6"/></svg>
+                    Leads<span class="nav-count" id="leadCount"></span>
+                </button>
+                <button class="nav-item" type="button" data-view="clients">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20a6 6 0 0 1 12 0"/><circle cx="17.5" cy="9" r="2.4"/><path d="M15.5 20a5 5 0 0 1 5.5-4.9"/></svg>
+                    Clients<span class="nav-count" id="clientCount"></span>
+                </button>
+                <button class="nav-item" type="button" data-view="reviews">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3.5 2.6 5.4 5.9.8-4.3 4.1 1 5.9-5.2-2.8-5.2 2.8 1-5.9L3.5 9.7l5.9-.8z"/></svg>
+                    Reviews<span class="nav-count nav-count--accent" id="reviewBadge" hidden></span>
+                </button>
+            </nav>
+
+            <div class="side-foot">
+                <button class="nav-item nav-item--quiet" type="button" id="logoutBtn">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4h4v16h-4"/><path d="M10 8l-4 4 4 4"/><path d="M6 12h9"/></svg>
+                    Sign out
+                </button>
+            </div>
+        </aside>
+
+        <div class="main">
+            <header class="topbar">
+                <div class="crumbs"><span>Studio</span><i>›</i><b id="crumb">Overview</b></div>
+                <div class="topbar-right">
+                    <a class="btn-ghost" id="exportBtn" href="#">Export leads</a>
+                    <button class="btn-primary btn-sm" type="button" id="addClientBtn">+ New client</button>
+                </div>
+            </header>
+
+            <!-- ══ Overview ══════════════════════════════════════ -->
+            <section class="view" id="viewOverview">
+                <div class="kpis" id="ovKpis"></div>
+
+                <div class="grid-2">
+                    <article class="panel">
+                        <div class="panel-head">
+                            <div>
+                                <h2>Money received</h2>
+                                <p class="panel-big" id="ovRevenueBig">—</p>
+                            </div>
+                            <span class="panel-note">Last 12 months</span>
+                        </div>
+                        <div class="chart" id="ovRevenueChart"></div>
+                    </article>
+
+                    <article class="panel">
+                        <div class="panel-head">
+                            <div>
+                                <h2>Pipeline</h2>
+                                <p class="panel-big" id="ovPipelineBig">—</p>
+                            </div>
+                            <span class="panel-note">Agreed but not yet paid</span>
+                        </div>
+                        <div class="funnel" id="ovFunnel"></div>
+                    </article>
+                </div>
+
+                <div class="grid-2">
+                    <article class="panel">
+                        <div class="panel-head"><h2>Which offers earn</h2></div>
+                        <div class="bars" id="ovServices"></div>
+                    </article>
+                    <article class="panel">
+                        <div class="panel-head"><h2>Where clients come from</h2></div>
+                        <div class="bars" id="ovSources"></div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- ══ Leads ═════════════════════════════════════════ -->
+            <section class="view" id="viewLeads" hidden>
+                <div class="kpis" id="kpis"></div>
+
+                <article class="panel">
+                    <div class="panel-head">
+                        <h2>Leads over the last 30 days</h2>
+                        <span class="panel-note" id="trendNote"></span>
+                    </div>
+                    <div class="chart" id="trendChart"></div>
+                </article>
+
+                <article class="panel">
+                    <div class="panel-head">
+                        <h2>All leads</h2>
+                        <span class="panel-note" id="resultCount"></span>
+                    </div>
+                    <div class="filters">
+                        <input type="search" id="search" placeholder="Search name, email, company…">
+                        <select id="statusFilter">
+                            <option value="">Any status</option>
+                            <option value="new">New</option>
+                            <option value="contacted">Contacted</option>
+                            <option value="qualified">Qualified</option>
+                            <option value="won">Won</option>
+                            <option value="lost">Lost</option>
+                        </select>
+                        <select id="typeFilter"><option value="">Any project</option></select>
+                        <select id="budgetFilter"><option value="">Any budget</option></select>
+                    </div>
+                    <div class="table-scroll">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>When</th><th>Name</th><th>Email</th>
+                                    <th>Wants</th><th>Budget</th><th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="leadRows"></tbody>
+                        </table>
+                    </div>
+                    <div class="pager">
+                        <button class="btn-ghost" id="prevPage" type="button">Previous</button>
+                        <span id="pageLabel"></span>
+                        <button class="btn-ghost" id="nextPage" type="button">Next</button>
+                    </div>
+                </article>
+            </section>
+
+            <!-- ══ Clients ═══════════════════════════════════════ -->
+            <section class="view" id="viewClients" hidden>
+                <article class="panel">
+                    <div class="panel-head">
+                        <h2>Clients</h2>
+                        <span class="panel-note" id="clientNote"></span>
+                    </div>
+                    <div class="filters">
+                        <input type="search" id="clientSearch" placeholder="Search clients…">
+                    </div>
+                    <div class="table-scroll">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Client</th><th>Source</th><th>Projects</th>
+                                    <th>Contracted</th><th>Paid</th><th>Stage</th>
+                                </tr>
+                            </thead>
+                            <tbody id="clientRows"></tbody>
+                        </table>
+                    </div>
+                </article>
+            </section>
+
+            <!-- ══ Reviews ═══════════════════════════════════════ -->
+            <section class="view" id="viewReviews" hidden>
+                <article class="panel">
+                    <div class="panel-head">
+                        <h2>Add a review yourself</h2>
+                        <span class="panel-note">Goes live immediately — no verification needed.</span>
+                    </div>
+                    <form class="stack-form" id="reviewForm">
+                        <div class="rv-photo">
+                            <span class="rv-preview" id="rvPreview">+</span>
+                            <div>
+                                <label class="btn-ghost rv-pick" for="rvFile">Client photo</label>
+                                <input type="file" id="rvFile" accept="image/png,image/jpeg,image/webp" hidden>
+                                <button type="button" class="rv-clear" id="rvClear" hidden>Remove</button>
+                            </div>
+                        </div>
+                        <div class="field-row">
+                            <label>Client name<input type="text" name="name" required></label>
+                            <label>Role &amp; company<input type="text" name="role" placeholder="Founder, Sodfa"></label>
+                            <label>Project<select name="projectType" id="rvType"></select></label>
+                            <label>Rating<select name="rating">
+                                    <option value="5">5 — excellent</option>
+                                    <option value="4">4</option><option value="3">3</option>
+                                    <option value="2">2</option><option value="1">1</option>
+                                </select></label>
+                        </div>
+                        <label>What they said<textarea name="body" rows="3" required></textarea></label>
+                        <div class="form-actions">
+                            <p class="form-error" id="rvError" role="alert"></p>
+                            <button type="submit" class="btn-primary" id="rvSubmit">Publish review</button>
+                        </div>
+                    </form>
+                </article>
+
+                <article class="panel">
+                    <div class="panel-head">
+                        <h2>What clients submitted</h2>
+                        <span class="panel-note" id="rvCounts"></span>
+                    </div>
+                    <div class="filters">
+                        <select id="rvFilter">
+                            <option value="">All</option>
+                            <option value="pending">Waiting for you</option>
+                            <option value="approved">Live on the site</option>
+                            <option value="rejected">Rejected</option>
+                        </select>
+                    </div>
+                    <div class="review-list" id="reviewList"></div>
+                </article>
+            </section>
+        </div>
+    </div>
+
+    <!-- ── Drawer + toast ──────────────────────────────────────── -->
+    <div class="drawer-backdrop" id="drawerBackdrop" hidden></div>
+    <aside class="drawer" id="drawer" hidden aria-label="Detail">
+        <div class="drawer-head">
+            <h2 id="drawerName"></h2>
+            <button class="drawer-close" id="drawerClose" type="button" aria-label="Close">&times;</button>
+        </div>
+        <div class="drawer-body" id="drawerBody"></div>
+    </aside>
+
+    <div class="toast" id="toast" hidden></div>
+
+    <script src="admin.js"></script>
+</body>
+
+</html>

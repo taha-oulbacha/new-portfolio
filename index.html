@@ -7,8 +7,8 @@
     <title>Taha Oulbacha | Portfolio </title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=3">
     <link rel="icon" href="img/TH-MONOGRAM.png">
 </head>
 
@@ -28,146 +28,395 @@
 
     <header>
         <nav class="navbar">
-            <a href="#Home"><img src="img/TH-MONOGRAM.png" alt="TH-logo" class="TH-logo"></a>
-            <a href="#Services">Services</a>
-            <a href="projects.html">Projects</a>
-            <a href="#About">About</a>
-            <a href="#Pricing">Pricing</a>
+            <a href="#Home" class="nav-logo"><img src="img/TH-MONOGRAM.png" alt="TH-logo" class="TH-logo"></a>
+
+            <span class="nav-avatar" role="img" aria-label="Taha Oulbacha"></span>
+
+            <span class="nav-status">Available for work<i class="status-dot"></i></span>
+
+            <div class="nav-links">
+                <a href="#Services">Services</a>
+                <a href="projects.html">Projects</a>
+                <a href="#About">About</a>
+                <a href="#Pricing">Pricing</a>
+            </div>
+
             <a href="#contact" class="contact-btn">Get in touch +</a>
-            <div class="menu-btn">☰</div>
+
+            <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+                <span class="nav-toggle-line"></span>
+                <span class="nav-toggle-line"></span>
+            </button>
         </nav>
     </header>
 
-    <!-- Floating menu button (appears on scroll) -->
-    <button class="fab-menu" aria-label="Open menu">
-        <span class="fab-line"></span>
-        <span class="fab-line"></span>
-    </button>
-
     <!-- Fullscreen overlay menu -->
     <div class="overlay-menu">
-        <div class="overlay-menu-inner">
-            <span class="overlay-close">&times;</span>
+        <div class="overlay-card">
+            <div class="overlay-card-top">
+                <span class="overlay-avatar" role="img" aria-label="Taha Oulbacha"></span>
+                <button class="overlay-close" aria-label="Close menu">
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+
             <nav class="overlay-nav">
                 <a href="#Home">Home</a>
                 <a href="#Services">Services</a>
                 <a href="projects.html">Projects</a>
                 <a href="#About">About</a>
                 <a href="#Pricing">Pricing</a>
-                <a href="#contact">Get in touch</a>
             </nav>
+
+            <a href="#contact" class="overlay-cta">Get in touch</a>
         </div>
     </div>
 
-    <!-- Mobile menu (hero only) -->
-    <div class="mobile-menu">
-        <div class="menu-top">
-            <span class="close-menu">&times;</span>
-        </div>
-        <a href="#Home">Home</a>
-        <a href="#Services">Services</a>
-        <a href="projects.html">Projects</a>
-        <a href="#About">About</a>
-        <a href="#Pricing">Pricing</a>
-        <a href="#contact">Get in touch</a>
-    </div>
     <!--HERO SECTION -->
     <section id="Home" class="hero">
         <div class="hero-card">
-            <div class="hero-right">
-                <h1 class="reveal">TAHA </h1>
-                <h3 class="reveal">Full-stack developer </h3>
-                <a href="https://tidycal.com/tahaoulbacha1/lets-build-something-powerful-together" target="_blank"
-                    class="start-btn">let's get
-                    started ➝</a>
-            </div>
-            <div class="hero-left">
-                <p>With me , we break boundaries to create fast, responsive websites tailored to each client’s needs.
-                    The
-                    goal is to deliver solutions that
-                    make a real impact and growth.</p>
+            <p class="hero-intro reveal">With me, we break boundaries to create fast, responsive websites tailored to
+                each client's needs. The goal is to deliver solutions that make a real impact and growth.</p>
+
+            <a href="#contact" data-quote="" class="hero-cta reveal">
+                <span class="hero-cta-label">Let's build your website</span>
+                <span class="hero-cta-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <path d="M7 17 17 7" />
+                        <path d="M8 7h9v9" />
+                    </svg>
+                </span>
+            </a>
+
+            <div class="hero-title">
+                <span class="hero-name reveal">Taha Oulbacha</span>
+                <h1 class="hero-role reveal"><span>Full-Stack</span> <span>Developer</span></h1>
             </div>
         </div>
     </section>
     <!--END HERO -->
 
     <!--SERVICES SECTION-->
-    <section id="Services" class="services">
-        <div class="services-content">
-            <div class="services-header reveal">
-                <h2>How I Help Businesses Grow Online</h2>
-                <a href="https://tidycal.com/tahaoulbacha1/lets-build-something-powerful-together" target="_blank"
-                    class="start-btn">let's get
-                    started ➝</a>
-            </div>
-            <div class="services-grid">
-                <div class="card reveal">
-                    <div class="card-top">
-                        <img src="icons/code.apng.png" alt="code-logo">
-                        <h3>Design & Development</h3>
+    <section id="Services" class="svc">
+        <div class="svc-intro">
+            <span class="svc-eyebrow reveal">What I build</span>
+            <h2 class="svc-heading reveal">Not just a website.<br>The system your business runs on.</h2>
+            <p class="svc-lede reveal">Six things I build for companies that have outgrown a brochure site — each one
+                designed to remove manual work and make money move faster.</p>
+        </div>
+
+        <div class="svc-stack">
+
+            <!-- ═══ 01 ═══════════════════════════════════════════════ -->
+            <article class="svc-card" style="--i:0">
+                <div class="svc-copy">
+                    <span class="svc-num"><i>01</i> Websites &amp; Digital Experiences</span>
+                    <h3>The face of your business, built to convince</h3>
+                    <p>Landing pages that turn traffic into enquiries, company sites that win trust before you
+                        speak, and customer portals that keep clients coming back.</p>
+                    <ul class="svc-tags">
+                        <li>Landing pages</li>
+                        <li>Business websites</li>
+                        <li>Customer portals</li>
+                    </ul>
+
+                    <figure class="svc-proof">
+                        <blockquote>Taha redesigned my portfolio and optimized the SEO. I went from invisible on
+                            Google to ranking on the first page within weeks.</blockquote>
+                        <figcaption><b>Freelance client</b><span>Personal brand</span></figcaption>
+                    </figure>
+
+                    <a class="svc-cta" data-quote="website" href="#contact">
+                        Start a website project
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7" /><path d="M8 7h9v9" /></svg>
+                    </a>
+                </div>
+
+                <div class="svc-visual">
+                    <div class="scene scene-web">
+                        <div class="win">
+                            <div class="win-bar"><i></i><i></i><i></i><span class="win-url">yourbrand.com</span></div>
+                            <div class="win-body">
+                                <div class="web-nav"><span class="web-logo"></span><em></em><em></em><em></em><span
+                                        class="web-navcta"></span></div>
+                                <div class="web-hero">
+                                    <span class="ln w70 h14"></span>
+                                    <span class="ln w45 h14"></span>
+                                    <span class="ln w85 h7 soft"></span>
+                                    <span class="ln w60 h7 soft"></span>
+                                    <span class="web-btn">Get a quote</span>
+                                </div>
+                                <div class="web-tiles"><span></span><span></span><span></span></div>
+                            </div>
+                        </div>
+                        <div class="chip chip-live"><i></i>Live</div>
                     </div>
-                    <p>I design and build modern, responsive websites tailored to your brand. Each site is optimized for
-                        performance,
-                        usability, and converting visitors into customers.</p>
                 </div>
-                <div class="card reveal">
-                    <div class="card-top">
-                        <img src="icons/refresh.png" alt="redesign-logo">
-                        <h3>Website Redesign</h3>
+            </article>
+
+            <!-- ═══ 02 ═══════════════════════════════════════════════ -->
+            <article class="svc-card" style="--i:1">
+                <div class="svc-copy">
+                    <span class="svc-num"><i>02</i> E-Commerce Systems</span>
+                    <h3>A store that runs itself while you sleep</h3>
+                    <p>Products, stock, orders and payments in one place — with an admin panel that tells you what
+                        sold, what's running out and what to reorder.</p>
+                    <ul class="svc-tags">
+                        <li>Custom stores</li>
+                        <li>Inventory</li>
+                        <li>Payments</li>
+                        <li>Order management</li>
+                    </ul>
+
+                    <figure class="svc-proof">
+                        <blockquote>Taha built our entire platform from scratch — frontend, backend, payment
+                            integration and the dashboard. Our conversion rate jumped 40% in the first month.</blockquote>
+                        <figcaption><b>Mohammed Saadi</b><span>Sodfa E-commerce Platform</span></figcaption>
+                    </figure>
+
+                    <a class="svc-cta" data-quote="ecommerce" href="#contact">
+                        Start an e-commerce project
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7" /><path d="M8 7h9v9" /></svg>
+                    </a>
+                </div>
+
+                <div class="svc-visual">
+                    <div class="scene scene-shop">
+                        <div class="shop-grid">
+                            <span class="prod"><i></i><b>$249</b></span>
+                            <span class="prod"><i class="v2"></i><b>$89</b></span>
+                            <span class="prod"><i class="v3"></i><b>$154</b></span>
+                            <span class="prod"><i class="v4"></i><b>$62</b></span>
+                        </div>
+                        <div class="checkout">
+                            <span class="co-title">Checkout</span>
+                            <span class="co-row">Subtotal<b>$249.00</b></span>
+                            <span class="co-row">Shipping<b>Free</b></span>
+                            <span class="co-row total">Total<b>$249.00</b></span>
+                            <span class="co-pay">Pay now</span>
+                        </div>
+                        <div class="chip chip-stock"><i></i>12 left in stock</div>
                     </div>
-                    <p>Already have a website but it looks outdated or performs poorly? I redesign existing websites
-                        with a modern look,
-                        improved structure, and better user experience.</p>
                 </div>
-                <div class="card reveal">
-                    <div class="card-top">
-                        <img src="icons/bot.png" alt="bot-logo">
-                        <h3>Business Automation</h3>
+            </article>
+
+            <!-- ═══ 03 ═══════════════════════════════════════════════ -->
+            <article class="svc-card" style="--i:2">
+                <div class="svc-copy">
+                    <span class="svc-num"><i>03</i> Business Dashboards</span>
+                    <h3>Stop digging through spreadsheets to find your numbers</h3>
+                    <p>One screen for customers, products, revenue and the reports you actually act on — so decisions
+                        take a minute instead of an afternoon.</p>
+                    <ul class="svc-tags">
+                        <li>CRM</li>
+                        <li>Revenue reporting</li>
+                        <li>Internal tools</li>
+                    </ul>
+
+                    <!-- TAHA: paste a real client quote here and delete the .svc-deliver block below.
+                         Template:
+                         <figure class="svc-proof">
+                           <blockquote>Their words, verbatim.</blockquote>
+                           <figcaption><b>Client name</b><span>Company</span></figcaption>
+                         </figure>
+                    -->
+                    <div class="svc-deliver">
+                        <span class="svc-deliver-label">What lands in your hands</span>
+                        <ul>
+                            <li>A live dashboard on your own domain</li>
+                            <li>Your team's logins and permissions</li>
+                            <li>CSV export of everything, any time</li>
+                        </ul>
                     </div>
-                    <p>Automate your customer communication with WhatsApp bots that provide menus, business hours,
-                        location, FAQs, and order
-                        handling instantly.</p>
+
+                    <a class="svc-cta" data-quote="dashboard" href="#contact">
+                        Start a dashboard project
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7" /><path d="M8 7h9v9" /></svg>
+                    </a>
                 </div>
-                <div class="card reveal">
-                    <div class="card-top">
-                        <img src="icons/speed.png" alt="speed-logo">
-                        <h3>Speed & SEO </h3>
+
+                <div class="svc-visual">
+                    <div class="scene scene-dash">
+                        <div class="dash">
+                            <div class="dash-top"><span class="dash-dot"></span><span class="dash-title">Overview</span>
+                                <span class="dash-range">Last 30 days</span>
+                            </div>
+                            <div class="dash-kpis">
+                                <span class="dk"><b>1,284</b><i>Customers</i></span>
+                                <span class="dk lime"><b>+18%</b><i>Revenue</i></span>
+                                <span class="dk"><b>96</b><i>Open deals</i></span>
+                            </div>
+                            <div class="dash-chart">
+                                <i style="--h:32%"></i><i style="--h:48%"></i><i style="--h:40%"></i>
+                                <i style="--h:62%"></i><i style="--h:54%"></i><i style="--h:76%"></i>
+                                <i style="--h:68%"></i><i style="--h:92%"></i>
+                            </div>
+                            <div class="dash-rows">
+                                <span class="dr"><i></i>Northwind Ltd<b>$4,200</b></span>
+                                <span class="dr"><i></i>Atlas Retail<b>$2,860</b></span>
+                                <span class="dr"><i></i>Cedar Group<b>$1,940</b></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ═══ 04 ═══════════════════════════════════════════════ -->
+            <article class="svc-card" style="--i:3">
+                <div class="svc-copy">
+                    <span class="svc-num"><i>04</i> Web Apps &amp; SaaS</span>
+                    <h3>Software people pay for every single month</h3>
+                    <p>Booking platforms, subscription products and client portals — accounts, billing, trials and
+                        renewals handled, so revenue arrives without you chasing it.</p>
+                    <ul class="svc-tags">
+                        <li>B2B &amp; B2C SaaS</li>
+                        <li>Booking platforms</li>
+                        <li>Subscriptions</li>
+                        <li>Client portals</li>
+                    </ul>
+
+                    <!-- TAHA: paste a real client quote here (same template as card 03) and delete .svc-deliver -->
+                    <div class="svc-deliver">
+                        <span class="svc-deliver-label">What lands in your hands</span>
+                        <ul>
+                            <li>Signup, login and password reset that just work</li>
+                            <li>Recurring billing wired to your bank</li>
+                            <li>An admin view of every account and payment</li>
+                        </ul>
                     </div>
 
-                    <p>Improve your website’s speed, performance, and basic SEO structure to help it rank better on
-                        Google and deliver a faster
-                        experience to visitors.</p>
-                </div>
-            </div>
-            <div class="services-carousel">
-                <div class="group">
-                    <div class="skill"><img src="icons/css.png" alt="css-logo" class="logo">CSS</div>
-                    <div class="skill"><img src="icons/html.png" alt="html-logo" class="logo">HTML</div>
-                    <div class="skill"><img src="icons/js.png" alt="js-logo" class="logo">JavaScript</div>
-                    <div class="skill"><img src="icons/python.png" alt="python-logo" class="logo">Python</div>
-                    <div class="skill"><img src="icons/bot.png" alt="bot-logo" class="logo">Automation Bots</div>
-                    <div class="skill"><img src="icons/figma.png" alt="figma-logo" class="logo">Figma</div>
-                    <div class="skill"><img src="icons/search.png" alt="serach-logo" class="logo">SEO</div>
-                    <div class="skill"><img src="icons/framer.png" alt="framer-logo" class="logo">Framer</div>
-                    <div class="skill"><img src="icons/fast.png" alt="flash-logo" class="logo">Optimization</div>
-
-                    <div class="skill"><img src="icons/css.png" alt="css-logo" class="logo">CSS</div>
-                    <div class="skill"><img src="icons/html.png" alt="html-logo" class="logo">HTML</div>
-                    <div class="skill"><img src="icons/js.png" alt="js-logo" class="logo">JavaScript</div>
-                    <div class="skill"><img src="icons/python.png" alt="python-logo" class="logo">Python</div>
-                    <div class="skill"><img src="icons/bot.png" alt="bot-logo" class="logo">Automation Bots</div>
-                    <div class="skill"><img src="icons/figma.png" alt="figma-logo" class="logo">Figma</div>
-                    <div class="skill"><img src="icons/search.png" alt="serach-logo" class="logo">SEO</div>
-                    <div class="skill"><img src="icons/framer.png" alt="framer-logo" class="logo">Framer</div>
-                    <div class="skill"><img src="icons/fast.png" alt="flash-logo" class="logo">Optimization</div>
+                    <a class="svc-cta" data-quote="webapp" href="#contact">
+                        Start a SaaS project
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7" /><path d="M8 7h9v9" /></svg>
+                    </a>
                 </div>
 
+                <div class="svc-visual">
+                    <div class="scene scene-saas">
+                        <div class="app">
+                            <aside class="app-side">
+                                <span class="app-brand"></span>
+                                <em class="on"></em><em></em><em></em><em></em>
+                            </aside>
+                            <div class="app-main">
+                                <span class="app-h">Choose your plan</span>
+                                <span class="plan"><b>Starter</b><i>$29<u>/mo</u></i></span>
+                                <span class="plan on"><b>Pro</b><i>$79<u>/mo</u></i><em>Current</em></span>
+                                <span class="plan"><b>Scale</b><i>$199<u>/mo</u></i></span>
+                            </div>
+                        </div>
+                        <div class="mrr">
+                            <span class="mrr-label">MRR</span>
+                            <svg viewBox="0 0 120 40" preserveAspectRatio="none" aria-hidden="true">
+                                <path class="mrr-line" d="M0 34 L20 30 L40 31 L60 22 L80 18 L100 11 L120 4" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </article>
 
+            <!-- ═══ 05 ═══════════════════════════════════════════════ -->
+            <article class="svc-card" style="--i:4">
+                <div class="svc-copy">
+                    <span class="svc-num"><i>05</i> Automation &amp; Integrations</span>
+                    <h3>The work nobody should still be doing by hand</h3>
+                    <p>Messages answered, invoices sent, stock updated, systems talking to each other — running
+                        quietly at 3am so your team starts the day already ahead.</p>
+                    <ul class="svc-tags">
+                        <li>WhatsApp</li>
+                        <li>Email flows</li>
+                        <li>API integrations</li>
+                        <li>Notifications</li>
+                    </ul>
 
-            </div>
+                    <figure class="svc-proof">
+                        <blockquote>He automated our entire ordering system with a WhatsApp bot and built us a
+                            beautiful website. Customers love it and we've cut support time by 60%.</blockquote>
+                        <figcaption><b>Restaurant chain</b><span>Small business</span></figcaption>
+                    </figure>
 
+                    <a class="svc-cta" data-quote="automation" href="#contact">
+                        Start an automation project
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7" /><path d="M8 7h9v9" /></svg>
+                    </a>
+                </div>
 
+                <div class="svc-visual">
+                    <div class="scene scene-auto">
+                        <div class="phone">
+                            <span class="phone-notch"></span>
+                            <div class="chat">
+                                <span class="bub in">Hi, is the shop open now?</span>
+                                <span class="bub out">Yes — open until 23:00. Want to see the menu?</span>
+                                <span class="bub in">Yes please</span>
+                                <span class="bub out menu">Menu · Order · Location</span>
+                            </div>
+                        </div>
+                        <div class="trace">
+                            <span class="tr"><i></i>Order received<b>0.0s</b></span>
+                            <span class="tr"><i></i>Confirmation sent<b>0.4s</b></span>
+                            <span class="tr"><i></i>Invoice emailed<b>1.1s</b></span>
+                            <span class="tr"><i></i>Stock updated<b>1.2s</b></span>
+                        </div>
+                    </div>
+                </div>
+            </article>
 
+            <!-- ═══ 06 ═══════════════════════════════════════════════ -->
+            <article class="svc-card" style="--i:5">
+                <div class="svc-copy">
+                    <span class="svc-num"><i>06</i> Custom Digital Systems</span>
+                    <h3>Built around how you already work</h3>
+                    <p>When off-the-shelf software forces your team to bend, I build the thing that fits — your
+                        rules, your steps, your vocabulary, nobody else's.</p>
+                    <ul class="svc-tags">
+                        <li>Bespoke workflows</li>
+                        <li>Legacy replacement</li>
+                        <li>Built to fit</li>
+                    </ul>
+
+                    <!-- TAHA: paste a real client quote here (same template as card 03) and delete .svc-deliver -->
+                    <div class="svc-deliver">
+                        <span class="svc-deliver-label">How it starts</span>
+                        <ul>
+                            <li>I map how your business actually works today</li>
+                            <li>We agree what the software must never break</li>
+                            <li>You get a system that matches the map</li>
+                        </ul>
+                    </div>
+
+                    <a class="svc-cta" data-quote="other" href="#contact">
+                        Start a custom system
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7" /><path d="M8 7h9v9" /></svg>
+                    </a>
+                </div>
+
+                <div class="svc-visual">
+                    <div class="scene scene-blueprint">
+                        <svg class="bp-wires" viewBox="0 0 340 260" fill="none" aria-hidden="true">
+                            <path d="M78 54 H170 V116" />
+                            <path d="M262 54 H170" />
+                            <path d="M170 146 V206 H78" />
+                            <path d="M170 206 H262" />
+                        </svg>
+                        <span class="bp bp1">Intake<em>form</em></span>
+                        <span class="bp bp2">Approval<em>2 steps</em></span>
+                        <span class="bp bp3 on">Your rules<em>engine</em></span>
+                        <span class="bp bp4">Delivery<em>tracked</em></span>
+                        <span class="bp bp5">Billing<em>auto</em></span>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+
+        <div class="svc-foot reveal">
+            <p>Most projects combine two or three of these. Tell me what's slowing your business down and I'll tell
+                you what it takes to fix it.</p>
+            <a href="#contact" data-quote="" class="start-btn">let's get started ➝</a>
+        </div>
     </section>
     <!--END SERVICE-->
 
@@ -212,8 +461,13 @@
                         <li>Fully responsive across all devices</li>
                         <li>Email support</li>
                     </ul>
+                    <a href="#contact" data-quote="website" class="price-cta price-cta--accent">
+                        Start with Starter <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7" /><path d="M8 7h9v9" /></svg>
+                    </a>
+                    <p class="price-note">Takes 2 minutes. No payment now.</p>
                 </div>
                 <div class="pricing-card pricing-card--light reveal">
+                    <span class="pricing-badge">Most chosen</span>
                     <div class="pricecard-top pricecard-top--light">
                         <h3>Premium </h3>
                         <img src="icons/premium.png" alt="premium-logo">
@@ -230,6 +484,32 @@
                         <li>Fully responsive on all devices</li>
                         <li>WhatsApp Chat-bot & email support</li>
                     </ul>
+                    <a href="#contact" data-quote="website" class="price-cta price-cta--ink">
+                        Start with Premium <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7" /><path d="M8 7h9v9" /></svg>
+                    </a>
+                    <p class="price-note">Takes 2 minutes. No payment now.</p>
+                </div>
+
+                <div class="pricing-card pricing-card--dark reveal">
+                    <div class="pricecard-top pricecard-top--dark">
+                        <h3>Business Systems</h3>
+                        <img src="icons/bot.png" alt="systems-logo">
+                    </div>
+                    <p class="price">Custom quote<span class="price-sub">scoped on a 20-minute call</span></p>
+                    <p class="description">For everything beyond a website — the software your business actually runs
+                        on, priced against what it replaces.</p>
+                    <ul class="features">
+                        <li>E-commerce stores with stock &amp; payments</li>
+                        <li>Dashboards, CRM and internal tools</li>
+                        <li>Web apps, SaaS and client portals</li>
+                        <li>WhatsApp, email and API automation</li>
+                        <li>Bespoke systems built to your workflow</li>
+                        <li>Priority support &amp; ongoing improvements</li>
+                    </ul>
+                    <a href="#contact" data-quote="" class="price-cta price-cta--accent">
+                        Get my quote <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7" /><path d="M8 7h9v9" /></svg>
+                    </a>
+                    <p class="price-note">Tell me the problem, I'll tell you the number.</p>
                 </div>
             </div>
         </div>
@@ -406,7 +686,10 @@
 
 
 
-    <script src="t.js"></script>
+    <script src="config.js?v=3"></script>
+    <script src="cursor.js?v=3"></script>
+    <script src="quote.js?v=3"></script>
+    <script src="t.js?v=3"></script>
 </body>
 
 </html>
