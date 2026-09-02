@@ -793,8 +793,33 @@ footer {
 }
 .rev-done .rev-submit { margin-top: 24px; }
 
+/* Phones: same treatment as the brief form — everything down ~40% so the
+   whole thing fits without a fight. */
 @media (max-width: 600px) {
-  .rev-card { padding: 30px 22px 26px; border-radius: 22px; }
-  .rev-title { font-size: 20px; }
-  .ap-review-btn { width: 100%; }
+  .rev-modal { padding: 12px; align-items: flex-start; padding-top: 3vh; }
+  .rev-card { padding: 20px 16px 18px; border-radius: 20px; max-height: 94vh; }
+  .rev-close { top: 12px; right: 13px; width: 30px; height: 30px; font-size: 19px; }
+  /* stop the heading running underneath the close button */
+  .rev-title { font-size: 18px; line-height: 1.25; padding-right: 40px; }
+  .rev-sub { font-size: 12.5px; line-height: 150%; margin-top: 7px; }
+  .rev-form { gap: 11px; margin-top: 17px; }
+
+  .rev-photo { gap: 12px; }
+  .rev-photo-preview { width: 48px; height: 48px; font-size: 18px; }
+  .rev-photo-btn { padding: 7px 13px; font-size: 12px; }
+  .rev-photo-note { font-size: 11px; margin-top: 5px; }
+
+  .rev-field { gap: 5px; }
+  .rev-field > span { font-size: 12px; }
+  .rev-field input,
+  .rev-field select,
+  .rev-field textarea { padding: 10px 12px; font-size: 14px; border-radius: 10px; }
+  .rev-field textarea { min-height: 68px; }
+
+  .rev-rating button { font-size: 21px; }
+  .rev-error { font-size: 12.5px; min-height: 16px; }
+  .rev-submit { padding: 13px 22px; font-size: 14.5px; }
+
+  .rev-tick { width: 52px; height: 52px; font-size: 24px; margin-bottom: 15px; }
+  .ap-review-btn { width: 100%; padding: 12px 20px; font-size: 13.5px; }
 }

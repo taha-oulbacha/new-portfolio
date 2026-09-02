@@ -33,6 +33,13 @@ const config = {
     database: process.env.DB_NAME || process.env.MYSQLDATABASE || "portfolio",
   },
 
+  // Creates the very first admin on boot when the table is empty, so a new
+  // deploy needs no shell access. Ignored once an admin exists.
+  bootstrapAdmin: {
+    email: (process.env.ADMIN_EMAIL || "").trim().toLowerCase(),
+    password: process.env.ADMIN_PASSWORD || "",
+  },
+
   jwtSecret: process.env.JWT_SECRET || "",
   sessionDays: int(process.env.SESSION_DAYS, 7),
 

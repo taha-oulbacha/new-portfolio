@@ -40,42 +40,63 @@ Then in the site's `config.js` (repo root) set `apiBase: "http://localhost:3000"
 open the site with any static server — `npx serve .` or VS Code Live Server. Opening
 `index.html` as a `file://` URL will not work; the browser blocks the API call.
 
-## Deploy to Railway
+## Deploy to Railway (no terminal needed)
 
-1. **Push this repo to GitHub** (the `server/` folder can live in the same repo as the site).
-2. **railway.app → New Project → Deploy from GitHub repo**, pick the repo.
-3. In the service **Settings → Root Directory**, enter `server`. Railway then runs
-   `npm install` and `npm start` on its own.
-4. **New → Database → Add MySQL** in the same project.
-5. Open the Node service → **Variables** → add:
+Everything here is done on railway.app in the browser.
+
+1. **Push this repo to GitHub** (the `server/` folder lives in the same repo as the site).
+2. **railway.app → New Project → Deploy from GitHub repo** → pick the repo.
+3. Open the service → **Settings → Source → Root Directory** → type `server` → save.
+   Railway then runs `npm install` and `npm start` by itself.
+4. Back in the project → **+ Create → Database → MySQL**.
+5. Open the Node service → **Variables** → **+ New Variable** for each:
 
    | Variable | Value |
    |---|---|
-   | `DATABASE_URL` | `${{MySQL.MYSQL_URL}}` — type it exactly, Railway substitutes it |
-   | `JWT_SECRET` | output of `openssl rand -hex 48` |
-   | `CORS_ORIGINS` | `https://taha-oulbacha.com,https://www.taha-oulbacha.com` |
+   | `DATABASE_URL` | `${{MySQL.MYSQL_URL}}` — type it exactly, Railway resolves it |
+   | `JWT_SECRET` | a long random string (50+ characters, any mash of letters and digits) |
    | `NODE_ENV` | `production` |
-   | `BOOKING_URL` | your TidyCal link |
+   | `CORS_ORIGINS` | `https://taha-oulbacha.com,https://www.taha-oulbacha.com` |
+   | `ADMIN_EMAIL` | your dashboard login |
+   | `ADMIN_PASSWORD` | a strong password, at least 10 characters |
 
 6. **Settings → Networking → Generate Domain.** You get something like
    `portfolio-api-production.up.railway.app`.
-7. **Migrations run themselves.** `npm start` is `node src/migrate.js && node src/index.js`,
-   and the schema is `CREATE TABLE IF NOT EXISTS`, so every deploy brings the database
-   up to date and re-running is harmless.
-8. **Create your login**, once, inside the deployed container:
-   `railway ssh -- node src/scripts/create-admin.js you@example.com "password"`.
-9. **Point the site at it** — edit `config.js` in the repo root:
+7. Watch **Deployments → View Logs**. You want to see `Migrations applied.`,
+   `API listening`, and `First admin created: …`.
+
+The tables build themselves on first boot (`npm start` runs the migration first),
+and `ADMIN_EMAIL` / `ADMIN_PASSWORD` create your login the first time the admin
+table is empty. Neither ever runs twice, so both are safe to leave in place —
+though you may as well delete the two admin variables once you have logged in.
+
+8. **Point the site at it** — edit `config.js` in the repo root:
 
    ```js
    window.PORTFOLIO_CONFIG = {
      apiBase: "https://portfolio-api-production.up.railway.app",
-     bookingUrl: "https://tidycal.com/tahaoulbacha1/lets-build-something-powerful-together",
    };
    ```
 
-   Commit and push — GitHub Pages redeploys the static site.
+   Commit and push. GitHub Pages redeploys the static site.
 
 Your dashboard is then at `https://<your-railway-domain>/admin`.
+
+### Doing it from the terminal instead
+
+With the Railway CLI (`brew install railway`), the same thing is:
+
+```bash
+cd server
+railway login && railway init
+railway add --database mysql
+railway add --service portfolio-api \
+  --variables 'DATABASE_URL=${{MySQL.MYSQL_URL}}' \
+  --variables "JWT_SECRET=$(openssl rand -hex 48)" \
+  --variables "NODE_ENV=production" \
+  --variables "CORS_ORIGINS=https://taha-oulbacha.com"
+railway up && railway domain
+```
 
 ### Optional: a subdomain for the API
 
